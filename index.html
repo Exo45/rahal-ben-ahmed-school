@@ -14,7 +14,7 @@
   <a class="brand" href="#home"><img src="logo.jpg" alt="شعار المؤسسة"><div><small>الثانوية الإعدادية</small><strong>الرحال بن أحمد</strong></div></a>
   <button class="hamb" aria-label="القائمة">☰</button>
   <nav>
-    <a href="#home">الرئيسية</a><a href="#about">عن المؤسسة</a><a href="#news">الأخبار</a>
+    <a href="#home">الرئيسية</a><a href="#about">عن المؤسسة</a><a href="#announcements">الإعلانات</a><a href="#news">الأخبار</a>
     <a href="#activities">الأنشطة</a><a href="#gallery">الصور</a><a href="#location">الموقع</a><a href="#help">المساعدة</a>
   </nav>
 </header>
@@ -58,6 +58,35 @@
     <article><i>🎨</i><h3>الحياة المدرسية</h3><p>عرض الأنشطة الثقافية والرياضية والتربوية.</p></article>
     <article><i>📷</i><h3>معرض الصور</h3><p>صور من فضاءات المؤسسة وأنشطتها.</p></article>
     <article><i>🤖</i><h3>المساعدة الذكية</h3><p>مساعد للإجابة عن الأسئلة الشائعة.</p></article>
+  </div>
+</section>
+
+
+<section id="announcements" class="section announcements-section">
+  <div class="section-ribbon">📢 جديد المؤسسة</div>
+  <div class="title">
+    <label>03 • الإعلانات الرسمية</label>
+    <h2>آخر إعلانات المؤسسة</h2>
+    <p>تابع هنا المستجدات والإعلانات التي تهم التلاميذ.</p>
+  </div>
+  <div class="announcement-feature">
+    <div class="announcement-image-wrap">
+      <img src="announcement-activities.jpeg" alt="إعلان التسجيل في الأنشطة الموازية للموسم الدراسي 2026/2027">
+      <span class="new-badge">جديد 🔥</span>
+    </div>
+    <div class="announcement-content">
+      <span class="date-pill">📅 الموسم الدراسي 2026/2027</span>
+      <h3>التسجيل في الأنشطة الموازية</h3>
+      <p>تعلن إدارة الثانوية الإعدادية الرحال بن أحمد عن افتتاح التسجيل في مجالات الأنشطة الموازية خلال الموسم الدراسي 2026/2027.</p>
+      <div class="club-list">
+        <span>💻 المعلوميات</span><span>🎨 التربية التشكيلية</span>
+        <span>🤖 الروبوتيك والبرمجة</span><span>🔬 نادي التفتح العلمي</span>
+        <span>❤️ النادي الصحي</span><span>📖 نادي القراءة</span>
+        <span>⚙️ التكنولوجيا</span><span>🎬 السينما والفنون</span>
+      </div>
+      <div class="notice-box">ℹ️ على التلاميذ الراغبين في التسجيل الاطلاع على الإعلان واختيار النادي المناسب ثم التسجيل لدى الأستاذ المكلف بالنادي.</div>
+      <button class="btn primary" id="openAnnouncement">عرض الإعلان كاملاً</button>
+    </div>
   </div>
 </section>
 
@@ -116,10 +145,18 @@
 </section>
 </main>
 
+
+<div id="announcementModal" class="modal" aria-hidden="true">
+  <div class="modal-card">
+    <button class="close-modal" aria-label="إغلاق">×</button>
+    <img src="announcement-activities.jpeg" alt="الإعلان الكامل عن الأنشطة الموازية">
+  </div>
+</div>
+
 <footer>
   <div class="foot">
     <div><img src="logo.jpg" alt="الشعار"><h3>الثانوية الإعدادية الرحال بن أحمد</h3><p>إنزكان • سوس ماسة • المغرب</p></div>
-    <div><h4>روابط</h4><a href="#about">عن المؤسسة</a><a href="#news">الأخبار</a><a href="#gallery">الصور</a><a href="#location">التواصل</a></div>
+    <div><h4>روابط</h4><a href="#about">عن المؤسسة</a><a href="#announcements">الإعلانات</a><a href="#news">الأخبار</a><a href="#gallery">الصور</a><a href="#location">التواصل</a></div>
     <div><h4>Facebook</h4><p>تابع صفحة المؤسسة:</p><a class="fb" target="_blank" href="https://www.facebook.com/profile.php?id=100085186013592">صفحة Facebook ↗</a></div>
   </div>
   <div class="copy">© 2026 — البوابة التعريفية للثانوية الإعدادية الرحال بن أحمد</div>
@@ -142,6 +179,14 @@ function add(text,who){const d=document.createElement("div");d.className="msg "+
 function ask(text){if(!text.trim())return;add(text,"user");setTimeout(()=>add(answer(text),"bot"),250)}
 document.querySelectorAll(".quick button").forEach(b=>b.onclick=()=>ask(b.dataset.q));
 chatForm.onsubmit=e=>{e.preventDefault();ask(q.value);q.value=""};
+
+const annModal=document.getElementById("announcementModal");
+const openAnn=document.getElementById("openAnnouncement");
+const closeAnn=document.querySelector(".close-modal");
+if(openAnn){openAnn.onclick=()=>{annModal.classList.add("open");annModal.setAttribute("aria-hidden","false")}}
+if(closeAnn){closeAnn.onclick=()=>{annModal.classList.remove("open");annModal.setAttribute("aria-hidden","true")}}
+if(annModal){annModal.onclick=e=>{if(e.target===annModal){annModal.classList.remove("open");annModal.setAttribute("aria-hidden","true")}}}
+
 </script>
 </body>
 </html>
