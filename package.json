@@ -1,0 +1,8 @@
+{
+  "name": "rahal-ben-ahmed-school",
+  "private": true,
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.0",
+    "@netlify/functions": "^2.8.0"
+  }
+}

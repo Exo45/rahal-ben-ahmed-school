@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rahalbenahmedcollege.netlify.app/sitemap.xml
